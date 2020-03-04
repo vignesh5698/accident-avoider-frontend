@@ -7,7 +7,7 @@ class MasterPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLogged: !false
+      isLogged: false
     }
   }
 

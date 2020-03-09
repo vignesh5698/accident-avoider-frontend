@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+html, .login-page {
+  height: -webkit-fill-available;
+  background: url(3.jpg) no-repeat center center fixed;
+  background-size: cover;
+}

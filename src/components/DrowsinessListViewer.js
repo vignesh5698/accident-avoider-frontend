@@ -6,6 +6,7 @@ class DrowsinessViewer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isDataLoaded: false,
       drowsinessList: null
     }
   }
@@ -19,11 +20,20 @@ class DrowsinessViewer extends Component {
       ref.on("value", snapshot => {
         const state = snapshot.val();
         const formattedDrowsinessList = this.getFormattedDrowsinessList(state);
+        const sortedList = [...formattedDrowsinessList].sort(this.Comparator);
+        const reversedList = [...sortedList].reverse();
         this.setState({
-          drowsinessList: formattedDrowsinessList
+          drowsinessList: reversedList,
+          isDataLoaded: true
         });
       });
   };
+
+  Comparator = (a, b) => {
+    if (a[1] < b[1]) return -1;
+    if (a[1] > b[1]) return 1;
+    return 0;
+  }
 
   getFormattedDrowsinessList = (drowsinessList) => {
     const formattedList = _.map(drowsinessList, (sleepingTimes, name) => {
@@ -63,15 +73,33 @@ class DrowsinessViewer extends Component {
     );
   }
 
-  render() {
+  renderTable = () => {
     return (
-      <div>
-        <br></br>
-        <h2>
+      <div className="card custom-card-new">
+        <h3 className="card-header custom-title">
           Accident Avoider Monitor
-        </h2>
-        <br></br>
-        {this.renderDrowsinessList()}
+        </h3>
+        <div className="card-body">
+          {this.renderDrowsinessList()}
+        </div>
+      </div>
+    );
+  }
+
+  renderLoadingBar = () => {
+    return (
+      <div className="progress custom-bar2">
+        <div className="progress-bar progress-bar-striped progress-bar-animated custom-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" >
+          <h4>Loading</h4>
+        </div>
+      </div>
+    );
+  }
+  render() {
+    const { isDataLoaded } = this.state;
+    return (
+      <div className='custom-bg'>
+        {isDataLoaded ? this.renderTable() : this.renderLoadingBar()}
       </div>
     );
   }

@@ -1,38 +1,42 @@
-.App {
+
+.custom-card {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 3.5%;
+}
+
+.custom-card-new {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.custom-title {
+  margin-top: 2%;
+  margin-left: 2%;
+  margin-right: 2%;
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.custom-center {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.custom-bg {
+  height: -webkit-fill-available;
+  background: url(3.jpg) no-repeat center center fixed;
+  background-size: cover;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.custom-padding {
+  vertical-align: middle !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.custom-bar {
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.custom-bar2 {
+  /* margin-top: 2%; */
+  height: 35px;
 }
